@@ -12,7 +12,9 @@ import CarbonBudget from "./pages/CarbonBudget";
 import NotFound from "./pages/NotFound";
 import TripTracker from "./pages/TripTracker";
 const queryClient = new QueryClient();
-import SwipePage from "./pages/SwipePage"; 
+import { Navigate } from 'react-router-dom';
+import SwipePage from "./pages/SwipePage";
+import LandingPage from './pages/LandingPage'; // Update the path to match your file structure
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -21,22 +23,64 @@ const App = () => (
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/carbon-budget" element={<CarbonBudget />} />
-            <Route path="/trip-tracker" element={<TripTracker />} />
-            <Route path="/swipe-page" element={<SwipePage />} />
-            <Route 
-              path="/marketplace" 
-              element={
-                <ProtectedRoute>
-                  <Marketplace />
-                </ProtectedRoute>
-              } 
-            />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+  {/* Public routes */}
+  <Route path="/landing" element={<LandingPage />} />
+  <Route path="/auth" element={<Auth />} />
+  
+  {/* Protected routes */}
+  <Route
+    path="/"
+    element={
+      <ProtectedRoute>
+        <Index />
+      </ProtectedRoute>
+    }
+  />
+  <Route
+    path="/carbon-budget"
+    element={
+      <ProtectedRoute>
+        <CarbonBudget />
+      </ProtectedRoute>
+    }
+  />
+  <Route
+    path="/trip-tracker"
+    element={
+      <ProtectedRoute>
+        <TripTracker />
+      </ProtectedRoute>
+    }
+  />
+  <Route
+    path="/swipe-page"
+    element={
+      <ProtectedRoute>
+        <SwipePage />
+      </ProtectedRoute>
+    }
+  />
+  <Route
+    path="/marketplace"
+    element={
+      <ProtectedRoute>
+        <Marketplace />
+      </ProtectedRoute>
+    }
+  />
+  <Route 
+  path="/" 
+  element={
+    <ProtectedRoute>
+      <Index />
+    </ProtectedRoute>
+  } 
+/>
+  
+  {/* Redirect any unknown routes */}
+  <Route path="*" element={<Navigate to="/landing" replace />} />
+</Routes>
+          
         </BrowserRouter>
       </AuthProvider>
     </TooltipProvider>

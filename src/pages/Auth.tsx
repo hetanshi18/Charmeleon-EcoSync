@@ -20,7 +20,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/marketplace');
+      navigate('/');
     }
   }, [user, navigate]);
 
@@ -93,7 +93,7 @@ const Auth = () => {
                 <p className="text-xs text-muted-foreground">Sustainable Communities</p>
               </div>
             </Link>
-            
+
             <Button variant="ghost" asChild>
               <Link to="/" className="flex items-center gap-2">
                 <ArrowLeft className="h-4 w-4" />
@@ -118,14 +118,14 @@ const Auth = () => {
               </CardDescription>
             </div>
           </CardHeader>
-          
+
           <CardContent>
             <Tabs defaultValue="signin" className="w-full">
               <TabsList className="grid w-full grid-cols-2 mb-6">
                 <TabsTrigger value="signin">Sign In</TabsTrigger>
                 <TabsTrigger value="signup">Sign Up</TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="signin" className="space-y-4">
                 <form onSubmit={handleSignIn} className="space-y-4">
                   <div className="space-y-2">
@@ -150,16 +150,16 @@ const Auth = () => {
                       required
                     />
                   </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-gradient-primary hover:shadow-glow transition-all" 
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-primary hover:shadow-glow transition-all"
                     disabled={loading}
                   >
                     {loading ? 'Signing in...' : 'Sign In'}
                   </Button>
                 </form>
               </TabsContent>
-              
+
               <TabsContent value="signup" className="space-y-4">
                 <form onSubmit={handleSignUp} className="space-y-4">
                   <div className="space-y-2">
@@ -196,9 +196,9 @@ const Auth = () => {
                       minLength={6}
                     />
                   </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-gradient-primary hover:shadow-glow transition-all" 
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-primary hover:shadow-glow transition-all"
                     disabled={loading}
                   >
                     {loading ? 'Creating account...' : 'Sign Up'}
