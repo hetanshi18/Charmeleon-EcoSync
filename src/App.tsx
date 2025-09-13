@@ -10,9 +10,9 @@ import Auth from "./pages/Auth";
 import Marketplace from "./pages/Marketplace";
 import CarbonBudget from "./pages/CarbonBudget";
 import NotFound from "./pages/NotFound";
-
+import TripTracker from "./pages/TripTracker";
 const queryClient = new QueryClient();
-
+import SwipePage from "./pages/SwipePage"; 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -24,6 +24,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/carbon-budget" element={<CarbonBudget />} />
+            <Route path="/trip-tracker" element={<TripTracker />} />
+            <Route path="/swipe-page" element={<SwipePage />} />
             <Route 
               path="/marketplace" 
               element={
