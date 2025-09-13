@@ -75,6 +75,7 @@ const Marketplace = () => {
       title: "Signed out successfully",
       description: "You have been signed out of your account.",
     });
+    navigate("/");
   };
 
   useEffect(() => {
