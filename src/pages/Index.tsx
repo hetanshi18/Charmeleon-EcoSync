@@ -37,6 +37,9 @@ const Index = () => {
               <Link to="/marketplace" className="text-foreground hover:text-eco-primary transition-colors">
                 Marketplace
               </Link>
+              <Link to="/eco-connect" className="text-foreground hover:text-eco-primary transition-colors">
+                EcoConnect
+              </Link>
               <Link to="/dashboard" className="text-foreground hover:text-eco-primary transition-colors">
                 Dashboard
               </Link>
@@ -149,12 +152,14 @@ const Index = () => {
               <div className="bg-accent/10 rounded-full p-4 w-16 h-16 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Users className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground">Community Challenges</h3>
+              <h3 className="text-xl font-semibold text-foreground">EcoConnect</h3>
               <p className="text-muted-foreground">
-                Participate in neighborhood sustainability challenges and earn rewards together.
+                Connect with like-minded eco warriors and unlock sustainability challenges together.
               </p>
-              <Button variant="ghost" className="text-accent hover:text-accent/80">
-                Join Challenges →
+              <Button variant="ghost" className="text-accent hover:text-accent/80" asChild>
+                <Link to="/eco-connect">
+                  Find Eco Partners →
+                </Link>
               </Button>
             </CardContent>
           </Card>

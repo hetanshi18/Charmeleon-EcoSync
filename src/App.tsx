@@ -12,7 +12,8 @@ import CarbonBudget from "./pages/CarbonBudget";
 import NotFound from "./pages/NotFound";
 import TripTracker from "./pages/TripTracker";
 const queryClient = new QueryClient();
-import SwipePage from "./pages/SwipePage"; 
+{/*import SwipePage from "./pages/SwipePage";*/} 
+import EcoConnect from "./pages/EcoConnect";
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -25,7 +26,8 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/carbon-budget" element={<CarbonBudget />} />
             <Route path="/trip-tracker" element={<TripTracker />} />
-            <Route path="/swipe-page" element={<SwipePage />} />
+            {/*<Route path="/swipe-page" element={<SwipePage />} />*/}
+           <Route path="/eco-connect" element={<EcoConnect/>} />
             <Route 
               path="/marketplace" 
               element={
