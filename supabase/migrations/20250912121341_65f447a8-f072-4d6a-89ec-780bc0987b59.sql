@@ -1,0 +1,43 @@
+-- Disable RLS on all tables where we enabled it
+ALTER TABLE public.categories DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.comments DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.follows DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.listing_interactions DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.notifications DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.reviews DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.saved_searches DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.transactions DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.users DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.brand_profiles DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.listings DISABLE ROW LEVEL SECURITY;
+
+-- Drop all policies we created
+DROP POLICY IF EXISTS "Authenticated users can view all categories" ON public.categories;
+DROP POLICY IF EXISTS "Authenticated users can view all comments" ON public.comments;
+DROP POLICY IF EXISTS "Users can create comments" ON public.comments;
+DROP POLICY IF EXISTS "Users can update their own comments" ON public.comments;
+DROP POLICY IF EXISTS "Authenticated users can view all follows" ON public.follows;
+DROP POLICY IF EXISTS "Users can create follows" ON public.follows;
+DROP POLICY IF EXISTS "Users can delete their own follows" ON public.follows;
+DROP POLICY IF EXISTS "Authenticated users can view all interactions" ON public.listing_interactions;
+DROP POLICY IF EXISTS "Users can create interactions" ON public.listing_interactions;
+DROP POLICY IF EXISTS "Users can view their own notifications" ON public.notifications;
+DROP POLICY IF EXISTS "Users can update their own notifications" ON public.notifications;
+DROP POLICY IF EXISTS "Authenticated users can view all reviews" ON public.reviews;
+DROP POLICY IF EXISTS "Users can create reviews" ON public.reviews;
+DROP POLICY IF EXISTS "Users can update their own reviews" ON public.reviews;
+DROP POLICY IF EXISTS "Users can view their own saved searches" ON public.saved_searches;
+DROP POLICY IF EXISTS "Users can create saved searches" ON public.saved_searches;
+DROP POLICY IF EXISTS "Users can update their own saved searches" ON public.saved_searches;
+DROP POLICY IF EXISTS "Users can delete their own saved searches" ON public.saved_searches;
+DROP POLICY IF EXISTS "Users can view transactions they're involved in" ON public.transactions;
+DROP POLICY IF EXISTS "Users can create transactions as buyer" ON public.transactions;
+DROP POLICY IF EXISTS "Users can update transactions they're involved in" ON public.transactions;
+DROP POLICY IF EXISTS "Authenticated users can view all users" ON public.users;
+DROP POLICY IF EXISTS "Users can update their own profile" ON public.users;
+DROP POLICY IF EXISTS "Authenticated users can view all brand profiles" ON public.brand_profiles;
+DROP POLICY IF EXISTS "Users can create their own brand profile" ON public.brand_profiles;
+DROP POLICY IF EXISTS "Users can update their own brand profile" ON public.brand_profiles;
+DROP POLICY IF EXISTS "Authenticated users can view all listings" ON public.listings;
+DROP POLICY IF EXISTS "Users can create their own listings" ON public.listings;
+DROP POLICY IF EXISTS "Users can update their own listings" ON public.listings;
